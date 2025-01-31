@@ -18,10 +18,3 @@ public class BigONotationTest {
         return false;
     }
 }
-
-
-// O(n) * O(m)
-// N e M sao diferentes porque no caso temos loops considerando condicoes diferentes, ou seja
-// listas diferentes
-// N eh size1
-// M eh size2
