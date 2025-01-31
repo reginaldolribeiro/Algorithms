@@ -1,4 +1,4 @@
-package exercises.turing;
+package exercises.practice;
 
 import java.util.HashSet;
 import java.util.Set;

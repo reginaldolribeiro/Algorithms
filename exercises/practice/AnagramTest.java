@@ -1,4 +1,4 @@
-package exercises.turing;
+package exercises.practice;
 
 public class AnagramTest {
     public static void main(String[] args) {

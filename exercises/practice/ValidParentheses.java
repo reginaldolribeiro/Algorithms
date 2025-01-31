@@ -1,4 +1,4 @@
-package exercises.turing;
+package exercises.practice;
 
 import java.util.Map;
 import java.util.Stack;
