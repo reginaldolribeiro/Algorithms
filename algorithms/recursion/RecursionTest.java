@@ -1,6 +1,6 @@
 package algorithms.recursion;
 
-public class Teste {
+public class RecursionTest {
     public static void main(String[] args) {
         int base = 2;
         int exponential = 3;
