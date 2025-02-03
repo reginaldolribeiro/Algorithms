@@ -15,33 +15,39 @@ public class TreeNode {
         this.right = right;
     }
 
+    // Recursively inverts a binary tree (DFS approach)
     public TreeNode invert(TreeNode root){
         if(root == null)
             return null;
 
+        // Recursively invert left and right subtrees
         TreeNode left = invert(root.left);
-        TreeNode right = invert1(root.right);
+        TreeNode right = invert(root.right);
 
+        // Swap left and right children
         root.left = right;
         root.right = left;
 
         return root;
     }
 
-
+    // Wrapper function to invert the tree using a helper method
     public TreeNode invert1(TreeNode root){
         if(root == null)
             return null;
         return invertHelper(root);
     }
+    // Recursive helper function to swap left and right children
     private TreeNode invertHelper(TreeNode root) {
         if(root == null)
             return root;
 
+        // Swap left and right child nodes
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
 
+        // Recursively invert left and right subtrees
         if(root.left != null)
             invertHelper(root.left);
         if(root.right != null)
@@ -50,6 +56,7 @@ public class TreeNode {
         return root;
     }
 
+    // Iteratively inverts a binary tree using BFS (level-order traversal)
     public TreeNode invertBfs(TreeNode root){
         if(root == null)
             return null;
@@ -61,10 +68,12 @@ public class TreeNode {
             TreeNode current = queue.poll();
             System.out.print(current.val + " ");
 
+            // Swap left and right children
             TreeNode temp = current.left;
             current.left = current.right;
             current.right = temp;
 
+            // Enqueue children for processing
             if(current.left != null) {
                 queue.offer(current.left);
             }
@@ -75,47 +84,7 @@ public class TreeNode {
         return root;
     }
 
-
-//    public TreeNode invertBfs1(TreeNode root) {
-//        if (root == null) {
-//            return null;
-//        }
-//
-//        // Cria a raiz para a nova árvore
-//        TreeNode newRoot = new TreeNode(root.val);
-//
-//        // Fila para percorrer a árvore original
-//        Queue<TreeNode> originalQueue = new LinkedList<>();
-//        // Fila para percorrer a árvore invertida que está sendo construída
-//        Queue<TreeNode> newQueue = new LinkedList<>();
-//
-//        originalQueue.offer(root);
-//        newQueue.offer(newRoot);
-//
-//        while (!originalQueue.isEmpty()) {
-//            TreeNode current = originalQueue.poll();
-//            TreeNode newCurrent = newQueue.poll();
-//
-//            // Se existir filho esquerdo na original,
-//            // ele se tornará o filho direito na nova.
-//            if (current.left != null) {
-//                newCurrent.right = new TreeNode(current.left.val);
-//                originalQueue.offer(current.left);
-//                newQueue.offer(newCurrent.right);
-//            }
-//
-//            // Se existir filho direito na original,
-//            // ele se tornará o filho esquerdo na nova.
-//            if (current.right != null) {
-//                newCurrent.left = new TreeNode(current.right.val);
-//                originalQueue.offer(current.right);
-//                newQueue.offer(newCurrent.left);
-//            }
-//        }
-//
-//        return newRoot;
-//    }
-
+    // Prints the tree in level-order (BFS)
     public void print(TreeNode root){
         if(root == null)
             return;
@@ -127,6 +96,7 @@ public class TreeNode {
             TreeNode current = queue.poll();
             System.out.print(current.val + " ");
 
+            // Enqueue left and right children for processing
             if(current.left != null)
                 queue.offer(current.left);
             if(current.right != null)
